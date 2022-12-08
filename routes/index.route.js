@@ -1,8 +1,7 @@
 const router = require('express').Router();
 
-const { Index } = require('../controllers/index.controller');
+const { IndexRender } = require('../controllers/index.controller');
 
-// Открытие главной страницы
-router.get('/', Index);
+router.get('/', IndexRender);
 
 module.exports = router;

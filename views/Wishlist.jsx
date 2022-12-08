@@ -1,20 +1,32 @@
 const React = require('react');
 const Layout = require('./Layout');
 
-module.exports = function Search({ user }) {
+module.exports = function Wishlist({ user, amiibos }) {
   return (
     <Layout user={user}>
       <div>
-        <form id="advanced-search-form" role="search">
-          <input type="text" className="form-control" id="name-input" placeholder="Character name..." aria-label="Username" aria-describedby="basic-addon1" />
-          <input type="text" className="form-control" id="game-input" placeholder="Game series..." aria-label="Username" aria-describedby="basic-addon1" />
-          <select className="form-select" id="type-select" aria-label="Default select example">
-            <option selected>All</option>
-            <option value="Figure">Figure</option>
-            <option value="Card">Card</option>
-          </select>
-          <button type="submit" id="advanced-search-btn" className="btn btn-primary">Search</button>
-        </form>
+
+        <div className="d-flex flex-wrap justify-content-center align-items-center" id="card-list">
+          {amiibos.map((amiibo) => (
+
+            <div className="card d-flex justify-content-center align-items-center cst-card">
+              <div className="cst-card-img-block d-flex justify-content-center align-items-center">
+                <img src={amiibo.img} className="cst-card-img" alt="" />
+              </div>
+              <div className="card-body">
+                <h5 className="card-title">{amiibo.character}</h5>
+                <h6 className="card-title">{amiibo.amiiboSeries}</h6>
+                <h6 className="card-title">{amiibo.type}</h6>
+                <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-detail={amiibo.tail} data-bs-target="#exampleModal">
+                  Details
+                </button>
+                <button type="button" className="btn btn-primary" data-delete={amiibo.tail}>
+                  Delete
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
 
         <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div className="modal-dialog">
@@ -47,7 +59,6 @@ module.exports = function Search({ user }) {
           </div>
         </div>
 
-        <div className="d-flex flex-wrap justify-content-center align-items-center" id="card-list" />
       </div>
     </Layout>
   );

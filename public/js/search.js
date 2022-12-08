@@ -1,62 +1,11 @@
-// Быстрый поиск в навигационном меню
-const inputSearch = document.querySelector('#input-search');
-const searchForm = document.querySelector('#search-form');
+// Элементы для поиска
 const cardList = document.querySelector('#card-list');
-
-// Расширенный поиск
 const advancedSearchForm = document.querySelector('#advanced-search-form');
 const nameInput = document.querySelector('#name-input');
 const gameInput = document.querySelector('#game-input');
 const typeSelect = document.querySelector('#type-select');
 
-// Подробная информация в модальном окне
-const exampleModalLabel = document.querySelector('#exampleModalLabel');
-const modalImg = document.querySelector('#modal-img');
-const modalAmiiboSeries = document.querySelector('#modal-amiibo-series');
-const modalCharacter = document.querySelector('#modal-character');
-const modalGameSeries = document.querySelector('#modal-game-series');
-const modalName = document.querySelector('#modal-name');
-const modalType = document.querySelector('#modal-type');
-
-// Быстрый поиск на главной странице по серии игр
-searchForm?.addEventListener('submit', async (event) => {
-  event.preventDefault();
-
-  const response = await fetch('https://www.amiiboapi.com/api/amiibo/');
-  const responseJson = await response.json();
-  const responseArr = responseJson.amiibo;
-
-  const inputSearchValue = inputSearch.value;
-
-  const searchResult = responseArr.filter((amiibo) => amiibo.gameSeries.includes(inputSearchValue));
-  const searchResultRender = [];
-
-  for (let i = 0; i < searchResult.length; i += 1) {
-    searchResultRender.push(
-      `
-      <div class="card d-flex justify-content-center align-items-center">
-        <div class="cst-card-img-block d-flex justify-content-center align-items-center">
-          <img src=${searchResult[i].image} class="cst-card-img" alt="" />
-        </div>
-        <div class="card-body">
-          <h5 class="card-title">${searchResult[i].character}</h5>
-          <h6 class="card-title">${searchResult[i].amiiboSeries}</h6>
-          <h6 class="card-title">${searchResult[i].type}</h6>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-      </div>
-      `,
-    );
-  }
-
-  if (response.status === 404) {
-    cardList.innerHTML = 'Не найдено';
-  } else {
-    cardList.innerHTML = searchResultRender.join(' ');
-  }
-});
-
-// Расширенный поиск
+// Поиск
 advancedSearchForm?.addEventListener('submit', async (event) => {
   event.preventDefault();
 
@@ -130,6 +79,9 @@ advancedSearchForm?.addEventListener('submit', async (event) => {
           <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-detail=${searchResult[i].tail} data-bs-target="#exampleModal">
           Details
           </button>
+          <button type="button" class="btn btn-primary" data-favorite=${searchResult[i].tail}>
+          To Favorite
+          </button>
         </div>
       </div>
       `,
@@ -143,21 +95,36 @@ advancedSearchForm?.addEventListener('submit', async (event) => {
   }
 });
 
-// Вывод подробной информации в модаль
+// Добавление в избранное
 document.addEventListener('click', async (event) => {
-  if (event.target.dataset.detail) {
-    const amiiboId = event.target.dataset.detail;
+  if (event.target.dataset.favorite) {
+    const amiiboId = event.target.dataset.favorite;
     const response = await fetch(`https://www.amiiboapi.com//api/amiibo/?tail=${amiiboId}`);
     const responseJson = await response.json();
     const responseArr = responseJson.amiibo;
-    console.log(responseArr[0]);
 
-    exampleModalLabel.innerText = `${responseArr[0].name}`;
-    modalImg.src = `${responseArr[0].image}`;
-    modalAmiiboSeries.innerText = `Amiibo Series: ${responseArr[0].amiiboSeries}`;
-    modalCharacter.innerText = `Character: ${responseArr[0].character}`;
-    modalGameSeries.innerText = `Game Series: ${responseArr[0].gameSeries}`;
-    modalName.innerText = `Name: ${responseArr[0].name}`;
-    modalType.innerText = `Type: ${responseArr[0].type}`;
+    event.preventDefault();
+    await fetch('/search', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        amiiboSeries: responseArr[0].amiiboSeries,
+        character: responseArr[0].character,
+        gameSeries: responseArr[0].gameSeries,
+        name: responseArr[0].name,
+        type: responseArr[0].type,
+
+        img: responseArr[0].image,
+
+        releaseAu: responseArr[0].release.au,
+        releaseEu: responseArr[0].release.eu,
+        releaseJp: responseArr[0].release.jp,
+        releaseNa: responseArr[0].release.na,
+
+        tail: responseArr[0].tail,
+      }),
+    });
   }
 });

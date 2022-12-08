@@ -9,7 +9,9 @@ module.exports = function Layout({ children, user }) {
         <title>amiibo Collection</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossOrigin="anonymous" />
         <link rel="stylesheet" href="/styles/index.css" />
-        <script defer src="/js/application.js" />
+        <script defer src="/js/search.js" />
+        <script defer src="/js/modal.js" />
+        <script defer src="/js/wishlist.js" />
       </head>
       <body>
 
@@ -26,6 +28,7 @@ module.exports = function Layout({ children, user }) {
                   {user ? (
                     <>
                       <a className="nav-link" href="/profile">{user}</a>
+                      <a className="nav-link" href="/wishlist">Wishlist</a>
                       <a className="nav-link" href="auth/signout">SingOut</a>
                     </>
                   ) : (
@@ -35,11 +38,6 @@ module.exports = function Layout({ children, user }) {
                     </>
                   )}
                 </div>
-
-                <form className="d-flex" id="search-form" role="search">
-                  <input className="form-control me-2" id="input-search" type="search" placeholder="Search" aria-label="Search" required />
-                  <button className="btn btn-outline-success" id="btn-search" type="submit">Search</button>
-                </form>
 
                 <div><a className="btn btn-outline-success" href="/search">Advanced Search</a></div>
 
