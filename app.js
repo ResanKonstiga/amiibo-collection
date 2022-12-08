@@ -3,6 +3,7 @@ require('dotenv').config();
 
 const express = require('express');
 const session = require('express-session');
+
 const FileStore = require('session-file-store')(session);
 
 const logger = require('morgan');
@@ -25,6 +26,7 @@ const sessionConfig = {
 
 const indexRouter = require('./routes/index.route');
 const authRouter = require('./routes/auth.route');
+const SearchRouter = require('./routes/search.route');
 
 app.use(logger('dev'));
 app.use(express.static(path.join(__dirname, 'public')));
@@ -33,7 +35,8 @@ app.use(express.json());
 app.use(session(sessionConfig));
 
 app.use('/', indexRouter);
-app.use('/', authRouter);
+app.use('/auth', authRouter);
+app.use('/search', SearchRouter);
 
 app.listen(PORT, () => {
   console.log(`Server started PORT: ${PORT}`);

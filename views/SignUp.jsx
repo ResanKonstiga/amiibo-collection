@@ -4,7 +4,7 @@ const Layout = require('./Layout');
 module.exports = function SignUp({ user }) {
   return (
     <Layout user={user}>
-      <form action="/signup" method="POST">
+      <form action="/auth/signup" method="POST">
 
         <div className="input-group mb-3">
           <span className="input-group-text" id="addon-wrapping">@</span>
