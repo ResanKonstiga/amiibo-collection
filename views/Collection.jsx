@@ -38,7 +38,7 @@ module.exports = function Collection({ user, amiibos }) {
         </div>
 
         <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div className="modal-dialog">
+          <div className="modal-dialog cst-modal-center">
             <div className="modal-content">
               <div className="modal-header">
                 <h1 className="modal-title fs-5" id="exampleModalLabel">

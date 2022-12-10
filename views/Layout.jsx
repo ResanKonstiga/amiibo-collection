@@ -9,9 +9,11 @@ module.exports = function Layout({ children, user }) {
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>amiibo Collection</title>
+        <link type="Image/x-icon" href="/favicon.ico" rel="icon" />
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossOrigin="anonymous" />
         <link rel="stylesheet" href="/styles/layout.css" />
         <link rel="stylesheet" href="/styles/search-wishlist.css" />
+        <link rel="stylesheet" href="/styles/details.css" />
         <script defer src="/js/search.js" />
         <script defer src="/js/modal.js" />
         <script defer src="/js/wishlist.js" />
