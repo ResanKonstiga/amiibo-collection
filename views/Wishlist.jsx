@@ -53,7 +53,7 @@ module.exports = function Wishlist({ user, amiibos }) {
               </div>
               <div className="modal-body d-flex justify-content center">
                 <div className="cst-modal-card-img-block">
-                  <img className="cst-modal-card-img" id="modal-img" src="https://raw.githubusercontent.com/N3evin/AmiiboAPI/master/images/icon_01010000-000e0002.png" alt="" />
+                  <img className="cst-modal-card-img" id="modal-img" src="" alt="" />
                 </div>
                 <div className="cst-modal-body">
                   <div id="modal-amiibo-series">Amiibo Series</div>
