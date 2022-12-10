@@ -1,27 +1,27 @@
 const render = require('../lib/renderTemplate');
 
-const WishlistView = require('../views/Wishlist');
+const CollectionView = require('../views/Collection');
 
-const { Wishlist } = require('../db/models');
+const { Collection } = require('../db/models');
 
-exports.WishlistRender = async (req, res) => {
+exports.CollectionRender = async (req, res) => {
   try {
     const user = req.session.user?.name;
 
-    const amiibos = await Wishlist.findAll({
+    const amiibos = await Collection.findAll({
       where: { userId: req.session.user.id },
       raw: true,
     });
 
-    render(WishlistView, { user, amiibos }, res);
+    render(CollectionView, { user, amiibos }, res);
   } catch (error) {
     console.log(error);
   }
 };
 
-exports.AddToWishlist = async (req, res) => {
+exports.AddToCollection = async (req, res) => {
   try {
-    await Wishlist.findOrCreate({
+    await Collection.findOrCreate({
       where: {
         tail: req.body.tail,
       },
@@ -46,9 +46,10 @@ exports.AddToWishlist = async (req, res) => {
   }
 };
 
-exports.DeleteFromWishList = async (req, res) => {
+exports.DeleteFromCollection = async (req, res) => {
   try {
-    await Wishlist.destroy({ where: { tail: req.body.amiiboId } });
+    console.log('Тут');
+    await Collection.destroy({ where: { tail: req.body.amiiboId } });
     res.sendStatus(200);
   } catch (error) {
     console.log(error);

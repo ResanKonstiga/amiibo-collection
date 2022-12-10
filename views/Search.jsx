@@ -4,7 +4,7 @@ const Layout = require('./Layout');
 module.exports = function Search({ user }) {
   return (
     <Layout user={user}>
-      <div className="d-flex flex-wrap justify-content-center align-items-center">
+      <div className="d-flex flex-column flex-wrap justify-content-center align-items-center">
 
         <div className="cst-container-search">
           <form id="advanced-search-form" role="search">

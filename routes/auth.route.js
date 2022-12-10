@@ -6,8 +6,10 @@ const {
 
 router.get('/signup', SignUpRender);
 router.post('/signup', SignUp);
+
 router.get('/signin', SignInRender);
 router.post('/signin', SignIn);
+
 router.get('/signout', SignOut);
 
 module.exports = router;

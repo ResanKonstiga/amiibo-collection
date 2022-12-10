@@ -1,4 +1,4 @@
-// Элементы для модального окна
+// Show details in modal window
 const exampleModalLabel = document.querySelector('#exampleModalLabel');
 const modalImg = document.querySelector('#modal-img');
 const modalAmiiboSeries = document.querySelector('#modal-amiibo-series');
@@ -11,7 +11,6 @@ const modalReleaseEu = document.querySelector('#modal-release-eu');
 const modalReleaseJp = document.querySelector('#modal-release-jp');
 const modalReleaseNa = document.querySelector('#modal-release-na');
 
-// Вывод подробной информации в модальное окно
 document.addEventListener('click', async (event) => {
   if (event.target.dataset.detail) {
     const amiiboId = event.target.dataset.detail;

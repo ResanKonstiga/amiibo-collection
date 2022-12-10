@@ -3,12 +3,12 @@ const {
 } = require('sequelize');
 
 module.exports = (sequelize, DataTypes) => {
-  class Favorite extends Model {
+  class Collection extends Model {
     static associate(models) {
       this.belongsTo(models.User, { foreignKey: 'id' });
     }
   }
-  Favorite.init({
+  Collection.init({
     userId: DataTypes.INTEGER,
     amiiboSeries: DataTypes.STRING,
     character: DataTypes.STRING,
@@ -23,7 +23,7 @@ module.exports = (sequelize, DataTypes) => {
     tail: DataTypes.STRING,
   }, {
     sequelize,
-    modelName: 'Favorite',
+    modelName: 'Collection',
   });
-  return Favorite;
+  return Collection;
 };

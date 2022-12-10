@@ -15,6 +15,7 @@ module.exports = function Layout({ children, user }) {
         <script defer src="/js/search.js" />
         <script defer src="/js/modal.js" />
         <script defer src="/js/wishlist.js" />
+        <script defer src="/js/collection.js" />
       </head>
       <body>
 
@@ -69,7 +70,7 @@ module.exports = function Layout({ children, user }) {
                         </div>
                       </a>
 
-                      <a className="nav-link text-center" href="/wishlist">
+                      <a className="nav-link text-center" href="/collection">
                         <div>
                           <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" className="bi bi-bag-check" viewBox="0 0 16 16">
                             <path fillRule="evenodd" d="M10.854 8.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708 0z" />

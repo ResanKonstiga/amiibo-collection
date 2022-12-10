@@ -1,7 +1,7 @@
 const React = require('react');
 const Layout = require('./Layout');
 
-module.exports = function Wishlist({ user, amiibos }) {
+module.exports = function Collection({ user, amiibos }) {
   return (
     <Layout user={user}>
       <div>
@@ -25,14 +25,9 @@ module.exports = function Wishlist({ user, amiibos }) {
                     <span className="cst-btn-text" data-detail={amiibo.tail}>Details</span>
                   </button>
 
-                  <button type="button" className="btn btn-danger cst-card-btn" data-collectionfromwish={amiibo.tail}>
-                    <img className="cst-btn-icon" src="./images/icons/plus.png" alt="" data-collectionfromwish={amiibo.tail} />
-                    <span className="cst-btn-text" data-collectionfromwish={amiibo.tail}>Add to collection</span>
-                  </button>
-
-                  <button type="button" className="btn btn-danger cst-card-btn" data-deletewishlist={amiibo.tail}>
-                    <img className="cst-btn-icon" src="./images/icons/trash.png" alt="" data-deletewishlist={amiibo.tail} />
-                    <span className="cst-btn-text" data-deletewishlist={amiibo.tail}>Delete</span>
+                  <button type="button" className="btn btn-danger cst-card-btn" data-deletecollection={amiibo.tail}>
+                    <img className="cst-btn-icon" src="./images/icons/trash.png" alt="" data-deletecollection={amiibo.tail} />
+                    <span className="cst-btn-text" data-deletecollection={amiibo.tail}>Delete</span>
                   </button>
                 </div>
 
