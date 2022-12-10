@@ -11,19 +11,24 @@ exports.SearchRender = async (req, res) => {
 
 exports.AddToFavorite = async (req, res) => {
   try {
-    await Favorite.create({
-      userId: req.session.user.id,
-      amiiboSeries: req.body.amiiboSeries,
-      character: req.body.character,
-      gameSeries: req.body.gameSeries,
-      name: req.body.name,
-      type: req.body.type,
-      img: req.body.img,
-      releaseAu: req.body.releaseAu,
-      releaseEu: req.body.releaseEu,
-      releaseJp: req.body.releaseJp,
-      releaseNa: req.body.releaseNa,
-      tail: req.body.tail,
+    await Favorite.findOrCreate({
+      where: {
+        tail: req.body.tail,
+      },
+      defaults: {
+        userId: req.session.user.id,
+        amiiboSeries: req.body.amiiboSeries,
+        character: req.body.character,
+        gameSeries: req.body.gameSeries,
+        name: req.body.name,
+        type: req.body.type,
+        img: req.body.img,
+        releaseAu: req.body.releaseAu,
+        releaseEu: req.body.releaseEu,
+        releaseJp: req.body.releaseJp,
+        releaseNa: req.body.releaseNa,
+        tail: req.body.tail,
+      },
     });
     res.sendStatus(200);
   } catch (error) {

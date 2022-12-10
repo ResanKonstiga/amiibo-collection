@@ -1,0 +1,46 @@
+.cst-container-search {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.cst-input-search {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 350px;
+}
+
+.cst-card-img-block {
+  width: 250px;
+  height: 300px;
+}
+
+.cst-card-img {
+  max-width: 200px;
+  max-height: 290px;
+}
+
+.card {
+  margin: 15px 15px 15px 15px;
+}
+
+.cst-card-btn {
+  margin: 5px;
+  font-size: 15px;
+}
+
+.cst-card:hover {
+  transform: scale(1.1)
+}
+
+.cst-btn-text {
+  margin-left: 5px;
+}
+
+.card-body {
+  max-width: 250px;
+}
+
+.cst-card-btn {
+  display: flex;
+  align-items: center;
+}

@@ -6,26 +6,35 @@ module.exports = function Wishlist({ user, amiibos }) {
     <Layout user={user}>
       <div>
 
-        <div className="d-flex flex-wrap justify-content-center align-items-center" id="card-list">
+        <div className="d-flex flex-wrap justify-content-center text-center" id="card-list">
           {amiibos.map((amiibo) => (
 
-            <div className="card d-flex justify-content-center align-items-center cst-card">
+            <div className="card d-flex justify-content-center cst-card">
+
               <div className="cst-card-img-block d-flex justify-content-center align-items-center">
                 <img src={amiibo.img} className="cst-card-img" alt="" />
               </div>
+
               <div className="card-body">
                 <h5 className="card-title">{amiibo.character}</h5>
                 <h6 className="card-title">{amiibo.amiiboSeries}</h6>
-                <h6 className="card-title">{amiibo.type}</h6>
-                <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-detail={amiibo.tail} data-bs-target="#exampleModal">
-                  Details
-                </button>
-                <button type="button" className="btn btn-primary" data-delete={amiibo.tail}>
-                  Delete
-                </button>
+
+                <div className="d-flex justify-content-around">
+                  <button type="button" className="btn btn-danger cst-card-btn" data-bs-toggle="modal" data-detail={amiibo.tail} data-bs-target="#exampleModal">
+                    <img src="./images/icons/detail.png" alt="" data-detail={amiibo.tail} />
+                    <span className="cst-btn-text" data-detail={amiibo.tail}>Details</span>
+                  </button>
+
+                  <button type="button" className="btn btn-danger cst-card-btn" data-delete={amiibo.tail}>
+                    <img src="./images/icons/delete.png" alt="" data-delete={amiibo.tail} />
+                    <span className="cst-btn-text" data-delete={amiibo.tail}>Delete</span>
+                  </button>
+                </div>
+
               </div>
             </div>
           ))}
+
         </div>
 
         <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -38,10 +47,10 @@ module.exports = function Wishlist({ user, amiibos }) {
                 <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" />
               </div>
               <div className="modal-body d-flex justify-content center">
-                <div>
-                  <img id="modal-img" src="https://raw.githubusercontent.com/N3evin/AmiiboAPI/master/images/icon_01010000-000e0002.png" alt="" />
+                <div className="cst-modal-card-img-block">
+                  <img className="cst-modal-card-img" id="modal-img" src="https://raw.githubusercontent.com/N3evin/AmiiboAPI/master/images/icon_01010000-000e0002.png" alt="" />
                 </div>
-                <div>
+                <div className="cst-modal-body">
                   <div id="modal-amiibo-series">Amiibo Series</div>
                   <div id="modal-character">Character</div>
                   <div id="modal-game-series">Game Series</div>

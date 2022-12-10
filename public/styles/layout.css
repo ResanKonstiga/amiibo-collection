@@ -1,0 +1,30 @@
+
+.cst-navbar, .navbar-expand-lg {
+  background-color: #e60012;
+}
+
+.nav-link {
+  color: white;
+  font-size: 12px;
+}
+
+.nav-link:hover {
+  color: white;
+  transform: scale(1.2)
+}
+
+.cst-navbar-icon-text {
+  margin-top: 5px;
+}
+
+.cst-navbar-brand {
+  margin-left: 5px;
+}
+
+.cst-navbar-brand:hover {
+  transform: scale(1.2)
+}
+
+.navbar-toggler {
+  border-color: white;
+}

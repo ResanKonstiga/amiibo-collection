@@ -4,17 +4,21 @@ const Layout = require('./Layout');
 module.exports = function Search({ user }) {
   return (
     <Layout user={user}>
-      <div>
-        <form id="advanced-search-form" role="search">
-          <input type="text" className="form-control" id="name-input" placeholder="Character name..." aria-label="Username" aria-describedby="basic-addon1" />
-          <input type="text" className="form-control" id="game-input" placeholder="Game series..." aria-label="Username" aria-describedby="basic-addon1" />
-          <select className="form-select" id="type-select" aria-label="Default select example">
-            <option selected>All</option>
-            <option value="Figure">Figure</option>
-            <option value="Card">Card</option>
-          </select>
-          <button type="submit" id="advanced-search-btn" className="btn btn-primary">Search</button>
-        </form>
+      <div className="d-flex flex-wrap justify-content-center align-items-center">
+
+        <div className="cst-container-search">
+          <form id="advanced-search-form" role="search">
+            <input type="text" className="form-control cst-input-search" id="name-input" placeholder="Character name..." aria-label="Username" aria-describedby="basic-addon1" />
+            <input type="text" className="form-control cst-input-search" id="game-input" placeholder="Game series..." aria-label="Username" aria-describedby="basic-addon1" />
+            <select className="form-select cst-input-search" id="type-select" aria-label="Default select example">
+              <option selected>All</option>
+              <option value="Figure">Figure</option>
+              <option value="Card">Card</option>
+              <option value="Band">Band</option>
+            </select>
+            <button type="submit" id="advanced-search-btn" className="btn btn-danger">Search</button>
+          </form>
+        </div>
 
         <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div className="modal-dialog">
@@ -45,9 +49,10 @@ module.exports = function Search({ user }) {
               </div>
             </div>
           </div>
+
         </div>
 
-        <div className="d-flex flex-wrap justify-content-center align-items-center" id="card-list" />
+        <div className="d-flex flex-wrap justify-content-center text-center" id="card-list" />
       </div>
     </Layout>
   );

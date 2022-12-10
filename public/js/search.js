@@ -26,14 +26,14 @@ advancedSearchForm?.addEventListener('submit', async (event) => {
   }
 
   // Заполнены все поля
-  if (nameInputValue.length !== 0 && gameInputValue.length !== 0 && (typeSelectValue === 'Figure' || typeSelectValue === 'Card')) {
+  if (nameInputValue.length !== 0 && gameInputValue.length !== 0 && (typeSelectValue === 'Figure' || typeSelectValue === 'Card' || typeSelectValue === 'Band')) {
     searchResult = responseArr.filter((amiibo) => amiibo.gameSeries.includes(gameInputValue)
     && amiibo.name.includes(nameInputValue)
     && amiibo.type.includes(typeSelectValue));
   }
 
   // Заполнен только Type
-  if (nameInputValue.length === 0 && gameInputValue.length === 0 && (typeSelectValue === 'Figure' || typeSelectValue === 'Card')) {
+  if (nameInputValue.length === 0 && gameInputValue.length === 0 && (typeSelectValue === 'Figure' || typeSelectValue === 'Card' || typeSelectValue === 'Band')) {
     searchResult = responseArr.filter((amiibo) => amiibo.type.includes(typeSelectValue));
   }
 
@@ -54,13 +54,13 @@ advancedSearchForm?.addEventListener('submit', async (event) => {
   }
 
   // Заполнены Name и Type
-  if (nameInputValue.length !== 0 && gameInputValue.length === 0 && (typeSelectValue === 'Figure' || typeSelectValue === 'Card')) {
+  if (nameInputValue.length !== 0 && gameInputValue.length === 0 && (typeSelectValue === 'Figure' || typeSelectValue === 'Card' || typeSelectValue === 'Band')) {
     searchResult = responseArr.filter((amiibo) => amiibo.type.includes(typeSelectValue)
     && amiibo.name.includes(nameInputValue));
   }
 
   // Заполнены Type и Game
-  if (nameInputValue.length === 0 && gameInputValue.length !== 0 && (typeSelectValue === 'Figure' || typeSelectValue === 'Card')) {
+  if (nameInputValue.length === 0 && gameInputValue.length !== 0 && (typeSelectValue === 'Figure' || typeSelectValue === 'Card' || typeSelectValue === 'Band')) {
     searchResult = responseArr.filter((amiibo) => amiibo.type.includes(typeSelectValue)
     && amiibo.gameSeries.includes(gameInputValue));
   }
@@ -68,22 +68,30 @@ advancedSearchForm?.addEventListener('submit', async (event) => {
   for (let i = 0; i < searchResult.length; i += 1) {
     searchResultRender.push(
       `
-      <div class="card d-flex justify-content-center align-items-center">
-        <div class="cst-card-img-block d-flex justify-content-center align-items-center">
-          <img src=${searchResult[i].image} class="cst-card-img" alt="" />
-        </div>
-        <div class="card-body">
-          <h5 class="card-title">${searchResult[i].character}</h5>
-          <h6 class="card-title">${searchResult[i].amiiboSeries}</h6>
-          <h6 class="card-title">${searchResult[i].type}</h6>
-          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-detail=${searchResult[i].tail} data-bs-target="#exampleModal">
-          Details
-          </button>
-          <button type="button" class="btn btn-primary" data-favorite=${searchResult[i].tail}>
-          To Favorite
-          </button>
-        </div>
+      <div class="card d-flex justify-content-center cst-card">
+
+      <div class="cst-card-img-block d-flex justify-content-center align-items-center">
+        <img src=${searchResult[i].image} class="cst-card-img" alt="" />
       </div>
+
+      <div class="card-body">
+        <h5 class="card-title">${searchResult[i].character}</h5>
+        <h6 class="card-title">${searchResult[i].amiiboSeries}</h6>
+
+        <div class="d-flex justify-content-around">
+          <button type="button" class="btn btn-danger cst-card-btn" data-bs-toggle="modal" data-detail=${searchResult[i].tail} data-bs-target="#exampleModal">
+            <img src="./images/icons/detail.png" alt="" data-detail=${searchResult[i].tail} />
+            <span class="cst-btn-text" data-detail=${searchResult[i].tail}>Details</span>
+          </button>
+
+          <button type="button" class="btn btn-danger cst-card-btn" data-delete=${searchResult[i].tail}>
+            <img src="./images/icons/delete.png" alt="" data-delete=${searchResult[i].tail} />
+            <span class="cst-btn-text" data-delete=${searchResult[i].tail}>Delete</span>
+          </button>
+      </div>
+
+      </div>
+    </div>
       `,
     );
   }
