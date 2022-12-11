@@ -1,22 +1,36 @@
+.modal-dialog {
+  max-width: 600px;
+}
+
 .cst-modal-center {
   top: 50% !important;
   transform: translateY(-50%) !important;
+  width: 600px;
 }
 
-.cst-modal-card-img-block{
+.cst-modal-card-img-block {
   width: 300px;
   height: 400px;
-  margin: 15px 25px 15px 15px;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-right: 15px;
 }
 
-.cst-modal-card-img{
-  max-width: 325px;
-  height: 390px;
+.cst-modal-card-img {
+  max-width: 300px;
+  max-height: 400px;
 }
 
-/* .modal-content {
-  width: 650px;
-} */
+.cst-modal-card-info-block{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-left: 20px;
+}
+
+.cst-modal-flag-icon {
+  margin-right: 2px;
+  width: 16px;
+  height: 16px;
+}

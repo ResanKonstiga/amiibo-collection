@@ -47,33 +47,69 @@ module.exports = function Search({ user }) {
         <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div className="modal-dialog cst-modal-center">
             <div className="modal-content">
+
               <div className="modal-header">
                 <h1 className="modal-title fs-5" id="exampleModalLabel">
                   Name
                 </h1>
                 <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" />
               </div>
-              <div className="modal-body d-flex justify-content center">
-                <div>
-                  <img id="modal-img" src="https://raw.githubusercontent.com/N3evin/AmiiboAPI/master/images/icon_01010000-000e0002.png" alt="" />
+
+              <div className="modal-body d-flex">
+
+                <div className="cst-modal-card-img-block">
+                  <img className="cst-modal-card-img" id="modal-img" src="https://raw.githubusercontent.com/N3evin/AmiiboAPI/master/images/icon_01010000-000e0002.png" alt="" />
                 </div>
-                <div>
-                  <div id="modal-amiibo-series">Amiibo Series</div>
-                  <div id="modal-character">Character</div>
-                  <div id="modal-game-series">Game Series</div>
-                  <div id="modal-name">Name</div>
-                  <div id="modal-type">Type</div>
+
+                <div className="cst-modal-card-info-block">
+                  <div>
+                    <b>Amiibo Series: </b>
+                    <span id="modal-amiibo-series" />
+                  </div>
+                  <div>
+                    <b>Character: </b>
+                    <span id="modal-character" />
+                  </div>
+                  <div>
+                    <b>Game Series: </b>
+                    <span id="modal-game-series" />
+                  </div>
+                  <div>
+                    <b>Name: </b>
+                    <span id="modal-name" />
+                  </div>
+                  <div>
+                    <b>Type: </b>
+                    <span id="modal-type" />
+                  </div>
                   <br />
-                  <div>Release date:</div>
-                  <div id="modal-release-au">AU</div>
-                  <div id="modal-release-eu">EU</div>
-                  <div id="modal-release-jp">JP</div>
-                  <div id="modal-release-na">NA</div>
+                  <div><b>Release date:</b></div>
+                  <div>
+                    <img className="cst-modal-flag-icon" src="./images/icons/au-flag.png" alt="" />
+                    <b>AU:</b>
+                    <span id="modal-release-au" />
+                  </div>
+                  <div>
+                    <img className="cst-modal-flag-icon" src="./images/icons/eu-flag.png" alt="" />
+                    <b>EU:</b>
+                    <span id="modal-release-eu" />
+                  </div>
+                  <div>
+                    <img className="cst-modal-flag-icon" src="./images/icons/jp-flag.png" alt="" />
+                    <b>JP:</b>
+                    <span id="modal-release-jp" />
+                  </div>
+                  <div>
+                    <img className="cst-modal-flag-icon" src="./images/icons/na-flag.png" alt="" />
+                    <b>NA:</b>
+                    <span id="modal-release-na" />
+                  </div>
                 </div>
+
               </div>
+
             </div>
           </div>
-
         </div>
 
         <div className="d-flex flex-wrap justify-content-center text-center" id="card-list" />

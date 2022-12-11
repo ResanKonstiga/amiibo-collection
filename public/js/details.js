@@ -21,15 +21,15 @@ document.addEventListener('click', async (event) => {
     exampleModalLabel.innerText = `${responseArr[0].name}`;
     modalImg.src = `${responseArr[0].image}`;
 
-    modalAmiiboSeries.innerText = `Amiibo Series: ${responseArr[0].amiiboSeries}`;
-    modalCharacter.innerText = `Character: ${responseArr[0].character}`;
-    modalGameSeries.innerText = `Game Series: ${responseArr[0].gameSeries}`;
-    modalName.innerText = `Name: ${responseArr[0].name}`;
-    modalType.innerText = `Type: ${responseArr[0].type}`;
+    modalAmiiboSeries.innerText = `${responseArr[0].amiiboSeries}`;
+    modalCharacter.innerText = `${responseArr[0].character}`;
+    modalGameSeries.innerText = `: ${responseArr[0].gameSeries}`;
+    modalName.innerText = `${responseArr[0].name}`;
+    modalType.innerText = `${responseArr[0].type}`;
 
-    modalReleaseAu.innerText = `AU: ${responseArr[0].release.au}`;
-    modalReleaseEu.innerText = `EU: ${responseArr[0].release.eu}`;
-    modalReleaseJp.innerText = `JP: ${responseArr[0].release.jp}`;
-    modalReleaseNa.innerText = `NA: ${responseArr[0].release.na}`;
+    modalReleaseAu.innerText = ` ${responseArr[0].release.au}`;
+    modalReleaseEu.innerText = ` ${responseArr[0].release.eu}`;
+    modalReleaseJp.innerText = ` ${responseArr[0].release.jp}`;
+    modalReleaseNa.innerText = ` ${responseArr[0].release.na}`;
   }
 });

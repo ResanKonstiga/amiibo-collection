@@ -26,9 +26,9 @@ const sessionConfig = {
 
 const indexRouter = require('./routes/index.route');
 const authRouter = require('./routes/auth.route');
-const SearchRouter = require('./routes/search.route');
-const WishlistRouter = require('./routes/wishlist.route');
-const CollectionRouter = require('./routes/collection.route');
+const searchRouter = require('./routes/search.route');
+const wishlistRouter = require('./routes/wishlist.route');
+const collectionRouter = require('./routes/collection.route');
 
 app.use(logger('dev'));
 app.use(express.static(path.join(__dirname, 'public')));
@@ -38,9 +38,9 @@ app.use(session(sessionConfig));
 
 app.use('/', indexRouter);
 app.use('/auth', authRouter);
-app.use('/search', SearchRouter);
-app.use('/wishlist', WishlistRouter);
-app.use('/collection', CollectionRouter);
+app.use('/search', searchRouter);
+app.use('/wishlist', wishlistRouter);
+app.use('/collection', collectionRouter);
 
 app.listen(PORT, () => {
   console.log(`Server started PORT: ${PORT}`);
