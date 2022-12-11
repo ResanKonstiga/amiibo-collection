@@ -13,6 +13,7 @@ module.exports = function Layout({ children, user }) {
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossOrigin="anonymous" />
         <link rel="stylesheet" href="/styles/layout.css" />
         <link rel="stylesheet" href="/styles/index.css" />
+        <link rel="stylesheet" href="/styles/auth.css" />
         <link rel="stylesheet" href="/styles/search-wishlist.css" />
         <link rel="stylesheet" href="/styles/details.css" />
         <script defer src="/js/search.js" />
@@ -110,7 +111,7 @@ module.exports = function Layout({ children, user }) {
                         </div>
                       </a>
 
-                      <a className="nav-link text-center" href="auth/signup">
+                      <a className="nav-link text-center" href="/auth/signup">
                         <div>
                           <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" className="bi bi-person-add" viewBox="0 0 16 16">
                             <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm.5-5v1h1a.5.5 0 0 1 0 1h-1v1a.5.5 0 0 1-1 0v-1h-1a.5.5 0 0 1 0-1h1v-1a.5.5 0 0 1 1 0Zm-2-6a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z" />
@@ -122,7 +123,7 @@ module.exports = function Layout({ children, user }) {
                         </div>
                       </a>
 
-                      <a className="nav-link text-center" href="auth/signin">
+                      <a className="nav-link text-center" href="/auth/signin">
                         <div>
                           <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" className="bi bi-box-arrow-in-right" viewBox="0 0 16 16">
                             <path fillRule="evenodd" d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0v-2z" />
@@ -143,7 +144,7 @@ module.exports = function Layout({ children, user }) {
           </nav>
         </header>
 
-        <main>
+        <main className="d-flex justify-content-center">
           {children}
         </main>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossOrigin="anonymous" />

@@ -1,25 +1,37 @@
 const React = require('react');
 const Layout = require('./Layout');
 
-module.exports = function SignIn({ user }) {
+module.exports = function SignIn({ user, error }) {
   return (
     <Layout user={user}>
-      <form action="/auth/signin" method="POST">
+      <div className="cst-auth-form">
+        <form action="/auth/signin" method="POST">
 
-        <div className="input-group mb-3">
-          <span className="input-group-text" id="addon-wrapping">@</span>
-          <input name="email" type="text" className="form-control" placeholder="Email" aria-label="Username" aria-describedby="addon-wrapping" />
-
+          {error
+        && (
+        <div>
+          <div className="alert alert-danger" role="alert">
+            {error}
+          </div>
         </div>
+        )}
 
-        <div className="input-group mb-3">
-          <span className="input-group-text" id="addon-wrapping">@</span>
-          <input name="password" type="password" className="form-control" placeholder="Password" aria-label="Username" aria-describedby="addon-wrapping" />
-        </div>
+          <div className="input-group mb-3">
+            <span className="input-group-text" id="addon-wrapping">📩</span>
+            <input name="email" type="text" required className="form-control" placeholder="Email" aria-label="Username" aria-describedby="addon-wrapping" />
+          </div>
 
-        <button className="btn btn-primary" type="submit">Sign In</button>
+          <div className="input-group mb-3">
+            <span className="input-group-text" id="addon-wrapping">🔑</span>
+            <input name="password" type="password" required className="form-control" placeholder="Password" aria-label="Username" aria-describedby="addon-wrapping" />
+          </div>
 
-      </form>
+          <div className="text-center">
+            <button className="btn btn-danger" type="submit">Sign In</button>
+          </div>
+
+        </form>
+      </div>
     </Layout>
   );
 };

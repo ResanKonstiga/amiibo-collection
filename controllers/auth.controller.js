@@ -24,7 +24,8 @@ exports.SignUp = async (req, res) => {
       res.redirect('/');
     });
   } catch (error) {
-    console.log(error);
+    if (error.name === 'SequelizeValidationError') { render(SignUp, { error: 'Invalid email. Enter in the format example@example.com' }, res); }
+    if (error.name === 'SequelizeUniqueConstraintError') { render(SignUp, { error: 'User with this email already exist' }, res); }
   }
 };
 
@@ -44,11 +45,11 @@ exports.SignIn = async (req, res) => {
         res.redirect('/');
       });
     } else {
-      render(SignIn, { message: 'Invalid username or password' }, res);
+      render(SignIn, { error: 'Invalid username or password' }, res);
     }
   } catch (error) {
     console.log(error);
-    render(SignIn, { message: 'Invalid username or password' }, res);
+    render(SignIn, { error: 'Invalid username or password' }, res);
   }
 };
 
