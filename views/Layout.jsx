@@ -14,10 +14,10 @@ module.exports = function Layout({ children, user }) {
         <link rel="stylesheet" href="/styles/layout.css" />
         <link rel="stylesheet" href="/styles/index.css" />
         <link rel="stylesheet" href="/styles/auth.css" />
-        <link rel="stylesheet" href="/styles/search-wishlist.css" />
+        <link rel="stylesheet" href="/styles/cardlist.css" />
         <link rel="stylesheet" href="/styles/details.css" />
         <script defer src="/js/search.js" />
-        <script defer src="/js/modal.js" />
+        <script defer src="/js/details.js" />
         <script defer src="/js/wishlist.js" />
         <script defer src="/js/collection.js" />
       </head>

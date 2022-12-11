@@ -37,7 +37,7 @@ module.exports = function Search({ user }) {
                 <option value="Band">Band</option>
               </select>
 
-              <button type="submit" id="advanced-search-btn" className="btn btn-primary">Search</button>
+              <button type="submit" id="advanced-search-btn" className="btn btn-danger">Search</button>
 
             </form>
 

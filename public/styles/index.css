@@ -1,11 +1,23 @@
 .cst-index-title {
   margin-top: 50px;
+  font-size: 30px;
+  margin-bottom: 50px;
+}
+
+.cst-inddex-info-block {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 .cst-index-title-image {
-  margin: 30px 10px 30px 10px;
+  margin: 10px 10px 10px 10px;
 }
 
 .cst-index-title-text {
-  margin-bottom: 20px;
+  margin-left: 15px;
+  margin-right: 15px;
+  font-size: 24px;
 }

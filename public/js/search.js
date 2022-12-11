@@ -64,8 +64,6 @@ advancedSearchForm?.addEventListener('submit', async (event) => {
     && amiibo.gameSeries.includes(gameInputValue));
   }
 
-  console.log(event.target.dataset.auth);
-
   if (event.target.dataset.auth === 'true') {
     for (let i = 0; i < searchResult.length; i += 1) {
       searchResultRender.push(
