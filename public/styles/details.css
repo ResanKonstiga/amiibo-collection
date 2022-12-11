@@ -2,3 +2,21 @@
   top: 50% !important;
   transform: translateY(-50%) !important;
 }
+
+.cst-modal-card-img-block{
+  width: 300px;
+  height: 400px;
+  margin: 15px 25px 15px 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cst-modal-card-img{
+  max-width: 325px;
+  height: 390px;
+}
+
+/* .modal-content {
+  width: 650px;
+} */

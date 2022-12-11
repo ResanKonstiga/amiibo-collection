@@ -40,17 +40,21 @@ module.exports = function Collection({ user, amiibos }) {
         <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div className="modal-dialog cst-modal-center">
             <div className="modal-content">
+
               <div className="modal-header">
                 <h1 className="modal-title fs-5" id="exampleModalLabel">
                   Name
                 </h1>
                 <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" />
               </div>
+
               <div className="modal-body d-flex justify-content center">
+
                 <div className="cst-modal-card-img-block">
                   <img className="cst-modal-card-img" id="modal-img" src="https://raw.githubusercontent.com/N3evin/AmiiboAPI/master/images/icon_01010000-000e0002.png" alt="" />
                 </div>
-                <div className="cst-modal-body">
+
+                <div>
                   <div id="modal-amiibo-series">Amiibo Series</div>
                   <div id="modal-character">Character</div>
                   <div id="modal-game-series">Game Series</div>
@@ -63,7 +67,9 @@ module.exports = function Collection({ user, amiibos }) {
                   <div id="modal-release-jp">JP</div>
                   <div id="modal-release-na">NA</div>
                 </div>
+
               </div>
+
             </div>
           </div>
         </div>
