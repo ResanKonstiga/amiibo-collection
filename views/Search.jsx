@@ -6,19 +6,43 @@ module.exports = function Search({ user }) {
     <Layout user={user}>
       <div className="d-flex flex-column flex-wrap justify-content-center align-items-center">
 
-        <div className="cst-container-search">
-          <form id="advanced-search-form" role="search">
-            <input type="text" className="form-control cst-input-search" id="name-input" placeholder="Character name..." aria-label="Username" aria-describedby="basic-addon1" />
-            <input type="text" className="form-control cst-input-search" id="game-input" placeholder="Game series..." aria-label="Username" aria-describedby="basic-addon1" />
-            <select className="form-select cst-input-search" id="type-select" aria-label="Default select example">
-              <option selected>All</option>
-              <option value="Figure">Figure</option>
-              <option value="Card">Card</option>
-              <option value="Band">Band</option>
-            </select>
-            <button type="submit" id="advanced-search-btn" className="btn btn-danger">Search</button>
-          </form>
-        </div>
+        {user ? (
+          <div className="cst-container-search">
+
+            <form id="advanced-search-form" role="search" data-auth="true">
+              <input type="text" className="form-control cst-input-search" id="name-input" placeholder="Character name..." aria-label="Username" aria-describedby="basic-addon1" />
+              <input type="text" className="form-control cst-input-search" id="game-input" placeholder="Game series..." aria-label="Username" aria-describedby="basic-addon1" />
+              <select className="form-select cst-input-search" id="type-select" aria-label="Default select example">
+                <option selected>All</option>
+                <option value="Figure">Figure</option>
+                <option value="Card">Card</option>
+                <option value="Band">Band</option>
+              </select>
+
+              <button type="submit" id="advanced-search-btn" className="btn btn-danger">Search</button>
+
+            </form>
+
+          </div>
+        ) : (
+          <div className="cst-container-search">
+
+            <form id="advanced-search-form" role="search" data-auth="false">
+              <input type="text" className="form-control cst-input-search" id="name-input" placeholder="Character name..." aria-label="Username" aria-describedby="basic-addon1" />
+              <input type="text" className="form-control cst-input-search" id="game-input" placeholder="Game series..." aria-label="Username" aria-describedby="basic-addon1" />
+              <select className="form-select cst-input-search" id="type-select" aria-label="Default select example">
+                <option selected>All</option>
+                <option value="Figure">Figure</option>
+                <option value="Card">Card</option>
+                <option value="Band">Band</option>
+              </select>
+
+              <button type="submit" id="advanced-search-btn" className="btn btn-primary">Search</button>
+
+            </form>
+
+          </div>
+        )}
 
         <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div className="modal-dialog cst-modal-center">

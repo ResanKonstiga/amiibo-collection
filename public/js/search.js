@@ -64,9 +64,12 @@ advancedSearchForm?.addEventListener('submit', async (event) => {
     && amiibo.gameSeries.includes(gameInputValue));
   }
 
-  for (let i = 0; i < searchResult.length; i += 1) {
-    searchResultRender.push(
-      `
+  console.log(event.target.dataset.auth);
+
+  if (event.target.dataset.auth === 'true') {
+    for (let i = 0; i < searchResult.length; i += 1) {
+      searchResultRender.push(
+        `
     <div class="card d-flex justify-content-center cst-card">
 
       <div class="cst-card-img-block d-flex justify-content-center align-items-center">
@@ -97,7 +100,34 @@ advancedSearchForm?.addEventListener('submit', async (event) => {
 
     </div>
       `,
-    );
+      );
+    }
+  } else {
+    for (let i = 0; i < searchResult.length; i += 1) {
+      searchResultRender.push(
+        `
+    <div class="card d-flex justify-content-center cst-card">
+
+      <div class="cst-card-img-block d-flex justify-content-center align-items-center">
+        <img src=${searchResult[i].image} class="cst-card-img" alt="" />
+      </div>
+
+      <div class="card-body">
+        <h5 class="card-title">${searchResult[i].character}</h5>
+        <h6 class="card-title">${searchResult[i].amiiboSeries}</h6>
+
+        <div class="d-flex flex-column">
+          <button type="button" class="btn btn-danger cst-card-btn" data-bs-toggle="modal" data-detail=${searchResult[i].tail} data-bs-target="#exampleModal">
+            <img class="cst-btn-icon" src="./images/icons/info.png" alt="" data-detail=${searchResult[i].tail} />
+            <span class="cst-btn-text" data-detail=${searchResult[i].tail}>View details</span>
+          </button>
+        </div>
+      </div>
+
+    </div>
+      `,
+      );
+    }
   }
 
   if (response.status === 404) {
